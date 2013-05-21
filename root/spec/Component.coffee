@@ -14,4 +14,4 @@ describe '{%= component_name %} component', ->
     ins = noflo.internalSocket.createSocket()
     out = noflo.internalSocket.createSocket()
     c.inPorts.in.attach ins
-    c.outPorts.out.attach cb
+    c.outPorts.out.attach out
