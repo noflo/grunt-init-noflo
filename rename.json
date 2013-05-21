@@ -1,0 +1,4 @@
+{
+  "components/Component.coffee": "components/{%= component_name %}.coffee",
+  "spec/Component.coffee": "spec/{%= component_name %}.coffee"
+}

@@ -2,9 +2,10 @@
  * grunt-init-noflo
  * https://noflojs.org/
  *
- * Derived from grunt-init-node:
+ * Copyright (c) 2013 Henri Bergius
  *
- * Copyright (c) 2012 "Cowboy" Ben Alman, contributors
+ * Derived from grunt-init-node copyright (c) 2012 "Cowboy" Ben Alman, contributors
+ *
  * Licensed under the MIT license.
  */
 
@@ -34,17 +35,16 @@ exports.template = function(grunt, init, done) {
     // Prompt for these values.
     init.prompt('name'),
     init.prompt('description'),
+    {
+      name: 'component_name',
+      message: 'Give a name for your first NoFlo component. Component names are usually CamelCased verbs',
+      'default': 'DoSomething'
+    },
     init.prompt('version'),
-    init.prompt('repository'),
-    init.prompt('homepage'),
-    init.prompt('bugs'),
     init.prompt('licenses'),
     init.prompt('author_name'),
     init.prompt('author_email'),
-    init.prompt('author_url'),
-    init.prompt('node_version', '>= 0.8.0'),
-    init.prompt('main'),
-    init.prompt('npm_test', 'grunt nodeunit'),
+    init.prompt('repository'),
     {
       name: 'travis',
       message: 'Will this project be tested with Travis CI?',
@@ -53,10 +53,29 @@ exports.template = function(grunt, init, done) {
     }
   ], function(err, props) {
     props.keywords = [];
+    props.dependencies = {
+      'noflo': '~0.3.3'
+    };
+    props.noflo = {
+      components: {},
+      graphs: {}
+    };
+    props.noflo.components[props.component_name] = 'components/' + props.component_name + '.coffee';
     props.devDependencies = {
-      'grunt-contrib-jshint': '~0.1.1',
-      'grunt-contrib-nodeunit': '~0.1.2',
-      'grunt-contrib-watch': '~0.2.0'
+      'grunt': '~0.4.1',
+      'grunt-cli': '~0.1.7',
+      'grunt-contrib-coffee': '~0.6.6',
+      'grunt-coffeelint': '~0.0.6',
+      "grunt-cafe-mocha": "~0.1.2",
+      "chai": "~1.5.0",
+      "mocha": "~1.9.0",
+      "grunt-mocha-phantomjs": "~0.2.2",
+      "grunt-component-build": "~0.2.7",
+      "grunt-contrib-uglify": "~0.2.0",
+      "grunt-contrib-watch": "~0.3.1",
+      "component-json": "git://github.com/CamShaft/component-json.git",
+      "grunt-combine": "~0.8.3",
+      "grunt-component": "~0.1.2"
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
@@ -64,6 +83,8 @@ exports.template = function(grunt, init, done) {
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
+
+    // Remove Travis config file if it isn't used
     if (!props.travis) { delete files['.travis.yml']; }
 
     // Add properly-named license files.

@@ -1,0 +1,23 @@
+{
+  "name": "{%= name %}",
+  "description": "{%= description %}",
+  "author": "{%= author_name %} <{%= author_email %}>",
+  "repo": "{%= git_user %}/{%= git_repo %}",
+  "version": "{%= version %}",
+  "keywords": [
+  ],
+  "dependencies": {
+    "bergie/noflo": "*"
+  },
+  "scripts": [
+    "components/{%= component_name %}.coffee"
+  ],
+  "json": [
+    "component.json"
+  ],
+  "noflo": {
+    "components": {
+      "{%= component_name %}": "components/{%= component_name %}.coffee"
+    }
+  }
+}
