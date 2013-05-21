@@ -63,7 +63,6 @@ exports.template = function(grunt, init, done) {
     props.noflo.components[props.component_name] = 'components/' + props.component_name + '.coffee';
     props.devDependencies = {
       'grunt': '~0.4.1',
-      'grunt-cli': '~0.1.7',
       'grunt-contrib-coffee': '~0.6.6',
       'grunt-coffeelint': '~0.0.6',
       "grunt-cafe-mocha": "~0.1.2",
@@ -76,6 +75,9 @@ exports.template = function(grunt, init, done) {
       "component-json": "git://github.com/CamShaft/component-json.git",
       "grunt-combine": "~0.8.3",
       "grunt-component": "~0.1.2"
+    };
+    props.scripts = {
+      test: 'grunt test'
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
