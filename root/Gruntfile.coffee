@@ -20,7 +20,7 @@ module.exports = ->
         options:
           action: 'install'
     component_build:
-      '<%= name %>':
+      '{%= name %}':
         output: './browser/'
         config: './component.json'
         scripts: true
@@ -35,8 +35,8 @@ module.exports = ->
     # https://github.com/anthonyshort/component-coffee/issues/3
     combine:
       browser:
-        input: 'dist/<%= name %>.js'
-        output: 'dist/<%= name %>.js'
+        input: 'browser/{%= name %}.js'
+        output: 'browser/{%= name %}.js'
         tokens: [
           token: '.coffee'
           string: '.js'
@@ -48,7 +48,7 @@ module.exports = ->
         report: 'min'
       noflo:
         files:
-          './browser/<%= name %>.min.js': ['./browser/<%= name %>.js']
+          './browser/{%= name %}.min.js': ['./browser/{%= name %}.js']
 
     # Automated recompilation and testing when developing
     watch:
