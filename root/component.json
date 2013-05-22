@@ -10,7 +10,8 @@
     "bergie/noflo": "*"
   },
   "scripts": [
-    "components/{%= component_name %}.coffee"
+    "components/{%= component_name %}.coffee",
+    "index.js"
   ],
   "json": [
     "component.json"
