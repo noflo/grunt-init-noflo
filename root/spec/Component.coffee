@@ -1,5 +1,5 @@
 noflo = require 'noflo'
-if typeof process is 'object' and process.title is 'node'
+unless noflo.isBrowser()
   chai = require 'chai' unless chai
   {%= component_name %} = require '../components/{%= component_name %}.coffee'
 else
