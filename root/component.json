@@ -7,7 +7,7 @@
   "keywords": [
   ],
   "dependencies": {
-    "bergie/noflo": "*"
+    "noflo/noflo": "*"
   },
   "scripts": [
     "components/{%= component_name %}.coffee",
