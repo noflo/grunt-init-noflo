@@ -72,7 +72,7 @@ exports.template = function(grunt, init, done) {
       "grunt-component-build": "~0.2.7",
       "grunt-contrib-uglify": "~0.2.0",
       "grunt-contrib-watch": "~0.3.1",
-      "component-json": "git://github.com/CamShaft/component-json.git",
+      "component-json": "~0.1.4",
       "grunt-combine": "~0.8.3",
       "grunt-component": "~0.1.2"
     };
