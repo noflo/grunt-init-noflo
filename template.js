@@ -54,7 +54,7 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.dependencies = {
-      'noflo': '~0.3.3'
+      'noflo': '~0.4.0'
     };
     props.noflo = {
       components: {},
