@@ -38,8 +38,11 @@ module.exports = ->
         input: 'browser/{%= name %}.js'
         output: 'browser/{%= name %}.js'
         tokens: [
-          token: '.coffee'
-          string: '.js'
+          token: '.coffee"'
+          string: '.js"'
+        ,
+          token: ".coffee'"
+          string: ".js'"
         ]
 
     # JavaScript minification for the browser
