@@ -1,10 +1,25 @@
 noflo = require 'noflo'
 
-class {%= component_name %} extends noflo.Component
-  constructor: ->
-    @inPorts =
-      in: new noflo.Port
-    @outPorts =
-      out: new noflo.Port
+exports.getComponent = ->
+  c = new noflo.Component
 
-exports.getComponent = -> new {%= component_name %}
+  # Define a meaningful icon for component from http://fontawesome.io/icons/
+  c.icon = 'cog'
+
+  # Provide a description on component usage
+  c.description = 'do X'
+
+  # Add input ports
+  c.inPorts.add 'in',
+    datatype: 'string'
+    process: (event, payload) ->
+      # What to do when port receives a packet
+      return unless event is 'data'
+      c.outPorts.out.send payload
+
+  # Add output ports
+  c.outPorts.add 'out',
+    datatype: 'string'
+
+  # Finally return the component instance
+  c
