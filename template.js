@@ -44,6 +44,7 @@ exports.template = function(grunt, init, done) {
     init.prompt('licenses'),
     init.prompt('author_name'),
     init.prompt('author_email'),
+    init.prompt('author_url'),
     init.prompt('repository'),
     {
       name: 'travis',
@@ -56,11 +57,6 @@ exports.template = function(grunt, init, done) {
     props.dependencies = {
       'noflo': '~0.5.0'
     };
-    props.noflo = {
-      components: {},
-      graphs: {}
-    };
-    props.noflo.components[props.component_name] = 'components/' + props.component_name + '.coffee';
     props.devDependencies = {
       'grunt': '~0.4.1',
       'grunt-contrib-coffee': '~0.6.6',
@@ -74,7 +70,8 @@ exports.template = function(grunt, init, done) {
       "grunt-contrib-watch": "~0.3.1",
       "component-json": "~0.1.4",
       "grunt-combine": "~0.8.3",
-      "grunt-component": "~0.1.2"
+      "grunt-component": "~0.1.2",
+      "grunt-noflo-manifest": "~0.1.2"
     };
     props.scripts = {
       test: 'grunt test'

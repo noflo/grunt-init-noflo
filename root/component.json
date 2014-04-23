@@ -10,15 +10,6 @@
     "noflo/noflo": "*"
   },
   "scripts": [
-    "components/{%= component_name %}.coffee",
     "index.js"
-  ],
-  "json": [
-    "component.json"
-  ],
-  "noflo": {
-    "components": {
-      "{%= component_name %}": "components/{%= component_name %}.coffee"
-    }
-  }
+  ]
 }
