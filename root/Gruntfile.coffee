@@ -81,7 +81,10 @@ module.exports = ->
 
     # Coding standards
     coffeelint:
-      components: ['components/*.coffee']
+      components: ['Gruntfile.coffee', 'spec/*.coffee', 'components/*.coffee']
+      options:
+        'max_line_length':
+          'level': 'warn'
 
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-contrib-coffee'
