@@ -65,13 +65,10 @@ exports.template = function(grunt, init, done) {
       "chai": "~1.5.0",
       "mocha": "~1.9.0",
       "grunt-mocha-phantomjs": "~0.2.2",
-      "grunt-component-build": "~0.2.7",
       "grunt-contrib-uglify": "~0.2.0",
       "grunt-contrib-watch": "~0.3.1",
-      "component-json": "~0.1.4",
-      "grunt-combine": "~0.8.3",
-      "grunt-component": "~0.1.2",
-      "grunt-noflo-manifest": "~0.1.2"
+      "grunt-noflo-manifest": "~0.1.2",
+      "grunt-noflo-browser": "^0.1.1"
     };
     props.scripts = {
       test: 'grunt test'
