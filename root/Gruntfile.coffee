@@ -59,7 +59,7 @@ module.exports = ->
       components: ['Gruntfile.coffee', 'spec/*.coffee', 'components/*.coffee']
       options:
         'max_line_length':
-          'level': 'warn'
+          'level': 'ignore'
 
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-contrib-coffee'
