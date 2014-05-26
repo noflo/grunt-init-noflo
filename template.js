@@ -67,7 +67,7 @@ exports.template = function(grunt, init, done) {
       "grunt-mocha-phantomjs": "~0.2.2",
       "grunt-contrib-uglify": "~0.2.0",
       "grunt-contrib-watch": "~0.3.1",
-      "grunt-noflo-manifest": "~0.1.2",
+      "grunt-noflo-manifest": "~0.1.10",
       "grunt-noflo-browser": "^0.1.1"
     };
     props.scripts = {
