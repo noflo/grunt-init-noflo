@@ -59,15 +59,15 @@ exports.template = function(grunt, init, done) {
     };
     props.devDependencies = {
       'grunt': '~0.4.1',
-      'grunt-contrib-coffee': '~0.6.6',
-      'grunt-coffeelint': '~0.0.6',
-      "grunt-cafe-mocha": "~0.1.2",
+      'grunt-contrib-coffee': '~0.10.1',
+      'grunt-coffeelint': '~0.0.10',
+      "grunt-cafe-mocha": "~0.1.12",
       "chai": "~1.5.0",
       "mocha": "~1.9.0",
       "grunt-mocha-phantomjs": "~0.2.2",
       "grunt-contrib-uglify": "~0.2.0",
       "grunt-contrib-watch": "~0.3.1",
-      "grunt-noflo-manifest": "~0.1.10",
+      "grunt-noflo-manifest": "~0.1.11",
       "grunt-noflo-browser": "^0.1.1"
     };
     props.scripts = {
