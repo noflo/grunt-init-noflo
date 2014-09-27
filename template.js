@@ -62,11 +62,11 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-coffee': '~0.10.1',
       'grunt-coffeelint': '~0.0.10',
       "grunt-cafe-mocha": "~0.1.12",
-      "chai": "~1.5.0",
-      "mocha": "~1.9.0",
+      "chai": "~1.9.0",
+      "mocha": "~1.21.0",
       "grunt-mocha-phantomjs": "~0.2.2",
       "grunt-contrib-uglify": "~0.2.0",
-      "grunt-contrib-watch": "~0.3.1",
+      "grunt-contrib-watch": "~0.6.1",
       "grunt-noflo-manifest": "~0.1.11",
       "grunt-noflo-browser": "^0.1.1"
     };
