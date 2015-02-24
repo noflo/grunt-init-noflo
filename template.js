@@ -55,27 +55,27 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.dependencies = {
-      'noflo': '~0.5.0'
+      'noflo': '~0.5.11'
     };
     props.devDependencies = {
-      'grunt': '~0.4.1',
-      'grunt-contrib-coffee': '~0.10.1',
-      'grunt-coffeelint': '~0.0.10',
-      "grunt-cafe-mocha": "~0.1.12",
-      "chai": "~1.9.0",
-      "mocha": "~1.21.0",
-      "grunt-mocha-phantomjs": "~0.2.2",
-      "grunt-contrib-uglify": "~0.2.0",
+      'grunt': '~0.4.5',
+      'grunt-contrib-coffee': '~0.13.0',
+      'grunt-coffeelint': '~0.0.13',
+      "grunt-cafe-mocha": "~0.1.13",
+      "chai": "~2.0.0",
+      "mocha": "~2.1.0",
+      "grunt-mocha-phantomjs": "~0.6.0",
+      "grunt-contrib-uglify": "~0.8.0",
       "grunt-contrib-watch": "~0.6.1",
       "grunt-noflo-manifest": "~0.1.11",
-      "grunt-noflo-browser": "^0.1.1"
+      "grunt-noflo-browser": "^0.1.9"
     };
     props.scripts = {
       test: 'grunt test'
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
-    props.travis_node_version = '0.10';
+    props.travis_node_version = '0.12';
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
