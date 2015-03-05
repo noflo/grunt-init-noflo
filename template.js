@@ -53,7 +53,10 @@ exports.template = function(grunt, init, done) {
       warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
     }
   ], function(err, props) {
-    props.keywords = [];
+    props.keywords = [
+      'noflo',
+      'ecosystem:noflo'
+    ];
     props.dependencies = {
       'noflo': '~0.5.11'
     };
