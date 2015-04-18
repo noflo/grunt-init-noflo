@@ -4,3 +4,4 @@
 /spec/*.js
 /spec/*.xml
 flowhub.json
+.noflo.json
