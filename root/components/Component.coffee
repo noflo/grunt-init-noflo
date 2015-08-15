@@ -12,14 +12,19 @@ exports.getComponent = ->
   # Add input ports
   c.inPorts.add 'in',
     datatype: 'string'
-    process: (event, payload) ->
-      # What to do when port receives a packet
-      return unless event is 'data'
-      c.outPorts.out.send payload
-
   # Add output ports
   c.outPorts.add 'out',
     datatype: 'string'
+
+  noflo.helpers.WirePattern c,
+    in: 'in'
+    out: 'out'
+    forwardGroups: true
+    async: true
+  , (data, groups, out, callback) ->
+    # What to do when port receives a packet
+    out.send data
+    do callback
 
   # Finally return the component instance
   c
