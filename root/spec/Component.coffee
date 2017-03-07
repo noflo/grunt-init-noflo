@@ -7,26 +7,15 @@ else
   baseDir = '{%= name %}'
 
 describe '{%= component_name %} component', ->
-  c = null
-  ins = null
-  out = null
-  before (done) ->
-    @timeout 4000
-    loader = new noflo.ComponentLoader baseDir
-    loader.load '{%= component_name %}', (err, instance) ->
-      return done err if err
-      c = instance
-      ins = noflo.internalSocket.createSocket()
-      c.inPorts.in.attach ins
-      done()
-  beforeEach ->
-    out = noflo.internalSocket.createSocket()
-    c.outPorts.out.attach out
-  afterEach ->
-    c.outPorts.out.detach out
-
-  describe 'when instantiated', ->
-    it 'should have an input port', ->
-      chai.expect(c.inPorts.in).to.be.an 'object'
-    it 'should have an output port', ->
-      chai.expect(c.outPorts.out).to.be.an 'object'
+  component = null
+  before ->
+    # Wrap the component into a function
+    component = noflo.asCallback '{%= component_name %}',
+      baseDir: baseDir
+  describe 'when receiving data', ->
+    it 'should send it out as-is', (done) ->
+      # Send some data to the component and wait for results
+      component 'foo', (err, result) ->
+        return done err if err
+        chai.expect(result).to.equal 'foo'
+        done()
