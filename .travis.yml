@@ -8,7 +8,6 @@ before_script:
 script:
 - mkdir output
 - cd output
-- grunt-init ../
 - ../travis/runner `dirname $(pwd)`
 - npm install
 - npm test
