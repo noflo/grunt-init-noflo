@@ -1,4 +1,4 @@
-grunt-init-noflo
+grunt-init-noflo [![Build Status](https://travis-ci.org/noflo/grunt-init-noflo.svg?branch=master)](https://travis-ci.org/noflo/grunt-init-noflo)
 ================
 
 > Create a NoFlo project or module with [grunt-init][], including Mocha unit tests.
