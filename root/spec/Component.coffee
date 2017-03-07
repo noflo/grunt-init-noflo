@@ -1,20 +1,29 @@
 noflo = require 'noflo'
 unless noflo.isBrowser()
   chai = require 'chai' unless chai
-  {%= component_name %} = require '../components/{%= component_name %}.coffee'
+  path = require 'path'
+  baseDir = path.resolve __dirname, '../'
 else
-  {%= component_name %} = require '{%= name %}/components/{%= component_name %}.js'
+  baseDir = '{%= name %}'
 
 describe '{%= component_name %} component', ->
   c = null
   ins = null
   out = null
+  before (done) ->
+    @timeout 4000
+    loader = new noflo.ComponentLoader baseDir
+    loader.load '{%= component_name %}', (err, instance) ->
+      return done err if err
+      c = instance
+      ins = noflo.internalSocket.createSocket()
+      c.inPorts.in.attach ins
+      done()
   beforeEach ->
-    c = {%= component_name %}.getComponent()
-    ins = noflo.internalSocket.createSocket()
     out = noflo.internalSocket.createSocket()
-    c.inPorts.in.attach ins
     c.outPorts.out.attach out
+  afterEach ->
+    c.outPorts.out.detach out
 
   describe 'when instantiated', ->
     it 'should have an input port', ->
