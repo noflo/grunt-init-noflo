@@ -11,6 +11,8 @@
 
 'use strict';
 
+var path = require('path');
+
 // Basic template description.
 exports.description = 'Create a NoFlo package, including Mocha unit tests.';
 
@@ -41,7 +43,7 @@ exports.template = function(grunt, init, done) {
       'default': 'DoSomething'
     },
     init.prompt('version'),
-    init.prompt('licenses'),
+    init.prompt('license', 'MIT'),
     init.prompt('author_name'),
     init.prompt('author_email'),
     init.prompt('author_url'),
@@ -53,41 +55,23 @@ exports.template = function(grunt, init, done) {
       warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
     }
   ], function(err, props) {
-    props.keywords = [
-      'noflo',
-      'ecosystem:noflo'
-    ];
-    props.dependencies = {
-      'noflo': '~0.5.11'
-    };
-    props.devDependencies = {
-      'grunt': '~0.4.5',
-      'grunt-contrib-coffee': '~0.13.0',
-      'grunt-coffeelint': '~0.0.13',
-      "grunt-cafe-mocha": "~0.1.13",
-      "chai": "~2.0.0",
-      "mocha": "~2.1.0",
-      "grunt-mocha-phantomjs": "~0.6.0",
-      "grunt-contrib-uglify": "~0.8.0",
-      "grunt-contrib-watch": "~0.6.1",
-      "grunt-noflo-manifest": "~0.1.11",
-      "grunt-noflo-browser": "^0.1.9"
-    };
+    var basePackage = grunt.file.readJSON(path.resolve(__dirname, 'package.json'));
+
+    props.keywords = basePackage.keywords;
+    props.dependencies = basePackage.dependencies;
+    props.devDependencies = basePackage.devDependencies;
     props.scripts = {
       test: 'grunt test'
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
-    props.travis_node_version = '0.12';
+    props.travis_node_version = '4.6';
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
 
     // Remove Travis config file if it isn't used
     if (!props.travis) { delete files['.travis.yml']; }
-
-    // Add properly-named license files.
-    init.addLicenseFiles(files, props.licenses);
 
     // Actually copy (and process) files.
     init.copyAndProcess(files, props);

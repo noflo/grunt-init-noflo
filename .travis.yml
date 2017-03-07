@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '6'
+sudo: false
+before_script:
+- npm install -g grunt-cli
+- npm install -g grunt-init
+script:
+- mkdir output
+- cd output
+- ../travis/runner `dirname $(pwd)`
+- npm install
+- npm test
+addons:
+  apt:
+    packages:
+    - expect

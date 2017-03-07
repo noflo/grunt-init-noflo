@@ -1,0 +1,37 @@
+{
+  "name": "grunt-init-noflo",
+  "description": "NoFlo project template for grunt-init",
+  "version": "0.1.0",
+  "author": {
+    "name": "Henri Bergius",
+    "email": "henri.bergius@iki.fi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/noflo/grunt-init-noflo.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "noflo": "^0.8.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.12.0",
+    "fbp-loader": "^0.1.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-coffeelint": "^0.0.16",
+    "grunt-mocha-phantomjs": "^4.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-noflo-browser": "^1.1.4",
+    "mocha": "^3.1.2"
+  },
+  "keywords": [
+    "noflo",
+    "ecosystem:noflo"
+  ]
+}

@@ -1,0 +1,52 @@
+#!/usr/bin/expect -f
+set template_dir [lindex $argv 0]
+spawn grunt-init --no-color $template_dir
+set timeout 200
+
+expect "Project name (" {
+  send "example-project\r"
+}
+
+expect "Description" {
+  send "Just an example\r"
+}
+
+expect "Give a name" {
+  send "\r"
+}
+
+expect "Version (" {
+  send "\r"
+}
+
+expect "license (" {
+  send "\r"
+}
+
+expect "Author name (" {
+  send "Henri Bergius\r"
+}
+
+expect "Author email (" {
+  send "henri.bergius@iki.fi\r"
+}
+
+expect "Author url (" {
+  send "http://bergie.iki.fi\r"
+}
+
+expect "Project git repository" {
+  send "\r"
+}
+
+expect "Will this project be tested" {
+  send "\r"
+}
+
+expect "Do you need to make any changes" {
+  send "\r"
+}
+
+expect "foo" {
+  send "bar"
+}
