@@ -1,4 +1,4 @@
 {
   "components/Component.js": "components/{%= component_name %}.js",
-  "spec/Component.coffee": "spec/{%= component_name %}.coffee"
+  "spec/Component.yaml": "spec/{%= component_name %}.yaml"
 }

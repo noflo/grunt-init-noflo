@@ -11,21 +11,17 @@
     "url": "git://github.com/noflo/grunt-init-noflo.git"
   },
   "license": "MIT",
-  "scripts": {
-    "test": "grunt test"
-  },
   "dependencies": {
     "noflo": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.0.0",
-    "grunt": "^1.0.1",
-    "grunt-coffeelint": "^0.0.16",
-    "grunt-contrib-coffee": "^2.0.0",
-    "grunt-mocha-phantomjs": "^4.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "grunt-noflo-browser": "^1.5.0",
-    "mocha": "^4.0.0"
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "fbp-spec": "^0.4.1",
+    "mocha": "^4.0.0",
+    "noflo-nodejs": "^0.9.0"
   },
   "keywords": [
     "noflo",

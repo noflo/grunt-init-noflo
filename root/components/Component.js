@@ -3,14 +3,14 @@ const noflo = require('noflo');
 // Define component interface
 // This is a pretty simplistic example. Read more at
 //   https://noflojs.org/documentation/components/
-exports.getComponent = function () {
+exports.getComponent = () => {
   const c = new noflo.Component();
 
   // Define a meaningful icon for component from http://fontawesome.io/icons/
   c.icon = 'cog';
 
   // Provide a description on component usage
-  c.description = 'do X'
+  c.description = 'do X';
 
   // Add input ports
   c.inPorts.add('in', {

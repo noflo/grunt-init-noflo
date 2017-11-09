@@ -61,7 +61,8 @@ exports.template = function(grunt, init, done) {
     props.dependencies = basePackage.dependencies;
     props.devDependencies = basePackage.devDependencies;
     props.scripts = {
-      test: 'grunt test'
+      pretest: 'eslint components/*.js',
+      test: "fbp-spec --secret test --address ws://localhost:3333 --command 'noflo-nodejs --port 3333 --register=false --capture-output --secret test' spec/"
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);

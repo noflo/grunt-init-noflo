@@ -1,7 +1,5 @@
 /node_modules/
 /browser/
-/spec/*.js
-/spec/*.xml
 /spec/runner.html
 flowhub.json
 fbp.json
