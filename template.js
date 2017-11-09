@@ -9,9 +9,7 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
-var path = require('path');
+const path = require('path');
 
 // Basic template description.
 exports.description = 'Create a NoFlo package, including Mocha unit tests.';
@@ -31,16 +29,17 @@ exports.after = 'You should now install project dependencies with _npm ' +
 exports.warnOn = '*';
 
 // The actual init template.
-exports.template = function(grunt, init, done) {
-
-  init.process({type: 'node'}, [
+exports.template = (grunt, init, done) => {
+  init.process({
+    type: 'node',
+  }, [
     // Prompt for these values.
     init.prompt('name'),
     init.prompt('description'),
     {
       name: 'component_name',
       message: 'Give a name for your first NoFlo component. Component names are usually CamelCased verbs',
-      'default': 'DoSomething'
+      default: 'DoSomething',
     },
     init.prompt('version'),
     init.prompt('license', 'MIT'),
@@ -51,28 +50,30 @@ exports.template = function(grunt, init, done) {
     {
       name: 'travis',
       message: 'Will this project be tested with Travis CI?',
-      'default': 'Y/n',
-      warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
-    }
-  ], function(err, props) {
-    var basePackage = grunt.file.readJSON(path.resolve(__dirname, 'package.json'));
+      default: 'Y/n',
+      warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile',
+    },
+  ], (err, props) => {
+    const basePackage = grunt.file.readJSON(path.resolve(__dirname, 'package.json'));
 
     props.keywords = basePackage.keywords;
     props.dependencies = basePackage.dependencies;
     props.devDependencies = basePackage.devDependencies;
     props.scripts = {
       pretest: 'eslint components/*.js',
-      test: "fbp-spec --secret test --address ws://localhost:3333 --command 'noflo-nodejs --port 3333 --register=false --capture-output --secret test' spec/"
+      test: "fbp-spec --secret test --address ws://localhost:3333 --command 'noflo-nodejs --port 3333 --register=false --capture-output --secret test' spec/",
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
     props.travis_node_version = '6';
 
     // Files to copy (and process).
-    var files = init.filesToCopy(props);
+    const files = init.filesToCopy(props);
 
     // Remove Travis config file if it isn't used
-    if (!props.travis) { delete files['.travis.yml']; }
+    if (!props.travis) {
+      delete files['.travis.yml'];
+    }
 
     // Actually copy (and process) files.
     init.copyAndProcess(files, props);
@@ -83,5 +84,4 @@ exports.template = function(grunt, init, done) {
     // All done!
     done();
   });
-
 };

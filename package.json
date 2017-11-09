@@ -23,6 +23,9 @@
     "mocha": "^4.0.0",
     "noflo-nodejs": "^0.9.0"
   },
+  "scripts": {
+    "test": "eslint *.js"
+  },
   "keywords": [
     "noflo",
     "ecosystem:noflo"
