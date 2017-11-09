@@ -5,6 +5,7 @@ sudo: false
 before_script:
 - npm install -g grunt-init
 script:
+- npm test
 - mkdir output
 - cd output
 - "../travis/runner `dirname $(pwd)`"
