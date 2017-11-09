@@ -1,0 +1,13 @@
+topic: "{%= name%}/{%= component_name %}"
+# Test cases for the component
+# This is a pretty simplistic example. Read more at
+#   https://github.com/flowbased/fbp-spec#writing-tests
+cases:
+-
+  name: 'sending a string'
+  assertion: 'should repeat the same'
+  inputs:
+    in: 'Hello NoFlo init!'
+  expect:
+    out:
+      equals: 'Hello NoFlo init!'

@@ -3,15 +3,22 @@ node_js:
 - '6'
 sudo: false
 before_script:
-- npm install -g grunt-cli
 - npm install -g grunt-init
 script:
 - mkdir output
 - cd output
-- ../travis/runner `dirname $(pwd)`
+- "../travis/runner `dirname $(pwd)`"
 - npm install
 - npm test
 addons:
   apt:
     packages:
     - expect
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: M7GCuq3oRjQzLzC0F5FBij9zlgbTWlVnYSpKiHebofOI45R7mXjbA8trN8W2SaiHUM8yHfCIq/mpNKhoKgq15ssHKPZoGXSCjdD5oTpTbUPWgiwNDS9MZ8+wt7DgpdMiYOCj42LJgHyAj+Z76zjDANm7ZosHCco2dPnHj5VUxPI=
+  on:
+    tags: true
+    repo: noflo/grunt-init-noflo
