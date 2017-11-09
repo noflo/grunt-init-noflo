@@ -15,19 +15,16 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "noflo": "^0.8.2"
+    "noflo": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.0.0",
-    "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.12.0",
-    "fbp-loader": "^0.1.1",
     "grunt": "^1.0.1",
-    "grunt-contrib-coffee": "^1.0.0",
     "grunt-coffeelint": "^0.0.16",
+    "grunt-contrib-coffee": "^2.0.0",
     "grunt-mocha-phantomjs": "^4.0.0",
     "grunt-mocha-test": "^0.13.2",
-    "grunt-noflo-browser": "^1.1.4",
+    "grunt-noflo-browser": "^1.5.0",
     "mocha": "^4.0.0"
   },
   "keywords": [
