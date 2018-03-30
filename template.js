@@ -65,7 +65,7 @@ exports.template = (grunt, init, done) => {
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
-    props.travis_node_version = '6';
+    props.travis_node_version = 'lts/*';
 
     // Files to copy (and process).
     const files = init.filesToCopy(props);
