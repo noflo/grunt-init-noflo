@@ -21,7 +21,7 @@
     "eslint-plugin-import": "^2.8.0",
     "fbp-spec": "^0.6.0",
     "mocha": "^6.0.0",
-    "noflo-nodejs": "^0.10.0"
+    "noflo-nodejs": "^0.11.0"
   },
   "scripts": {
     "test": "eslint *.js"
